@@ -5,12 +5,9 @@
     <div class="room-section">
       <div class="info-row"><p>Jans Home</p></div>
       <div class="devices">
-        <dashboard-device-power-card color="blue"></dashboard-device-power-card>
-        <dashboard-device-power-card color="red"></dashboard-device-power-card>
-        <dashboard-device-power-card color="purple">
-        </dashboard-device-power-card>
         <dashboard-device-power-card
-          color="green"
+          *ngFor="let device of devices"
+          [device]="device"
         ></dashboard-device-power-card>
       </div>
       <dashboard-welcome-card></dashboard-welcome-card>

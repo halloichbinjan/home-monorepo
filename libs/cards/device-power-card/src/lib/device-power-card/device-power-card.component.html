@@ -1,6 +1,9 @@
 <dashboard-card class="device-card">
   <div class="switch-row">
     <p>ON</p>
+    <dashboard-toggle-switch
+      (toggleChanged)="handleToggleChange($event)"
+    ></dashboard-toggle-switch>
   </div>
 
   <p>Refridgerator</p>
