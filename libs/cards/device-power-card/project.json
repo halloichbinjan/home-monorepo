@@ -2,7 +2,7 @@
   "name": "power-card",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/cards/power-card/src",
-  "prefix": "home-monorepo",
+  "prefix": "dashboard",
   "tags": [],
   "projectType": "library",
   "targets": {

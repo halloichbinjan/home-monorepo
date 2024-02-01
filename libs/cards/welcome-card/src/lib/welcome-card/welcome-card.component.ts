@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { CardComponent } from '@home-monorepo/ui-kit';
 
 @Component({
-  selector: 'home-monorepo-welcome-card',
+  selector: 'dashboard-welcome-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent],
   templateUrl: './welcome-card.component.html',
-  styleUrl: './welcome-card.component.css',
+  styleUrl: './welcome-card.component.scss',
 })
 export class WelcomeCardComponent {}

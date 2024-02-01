@@ -1,0 +1,40 @@
+dashboard-card {
+  padding: 25px;
+}
+
+.welcome-text-section {
+  max-width: 60%;
+
+  .welcome-text {
+    margin: 20px 0;
+    color: #bddaff;
+  }
+
+  .weather-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 5px;
+
+    .temperature {
+      display: flex;
+      gap: 10px;
+      p {
+        font-size: 22px;
+      }
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .topic {
+      font-size: 14px;
+    }
+
+    .description {
+      font-size: 12px;
+      color: var(--secondary-text-color);
+    }
+  }
+}

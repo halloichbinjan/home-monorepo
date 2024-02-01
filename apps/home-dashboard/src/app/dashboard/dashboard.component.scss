@@ -1,3 +1,52 @@
 :host {
   display: flex;
+  flex: 1;
+  padding: 0 40px;
+  gap: 30px;
+}
+
+.left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+
+  .left-header {
+    //background-color: red;
+    height: 160px;
+    z-index: 2;
+    margin-left: 15px;
+  }
+
+  .scroll-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    padding: 15px 0 15px 25px;
+
+    .room-section {
+      .info-row {
+        height: 35px;
+        margin-bottom: 15px;
+        p {
+          font-size: 22px;
+          color: var(--secondary-text-color);
+          font-weight: 300;
+        }
+      }
+      .devices {
+        display: flex;
+        gap: 30px;
+        dashboard-device-power-card {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+.right {
+  flex: 1;
 }

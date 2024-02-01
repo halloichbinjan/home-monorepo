@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  height: 90px;
+
+  background-color: black;
+
+  .left {
+    width: 130px;
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    gap: 30px;
+    padding: 0 40px;
+    .left {
+      flex: 2;
+      background-color: red;
+    }
+
+    .right {
+      flex: 1;
+      background-color: blue;
+    }
+  }
+}

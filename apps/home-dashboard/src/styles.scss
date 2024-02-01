@@ -1,12 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../../../libs/ui-kit/src/lib/scss/themes';
+
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: var(--primary-color);
 }
 
 h1 {
-  margin: 0;
   line-height: 24px;
   letter-spacing: 1.6px;
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }

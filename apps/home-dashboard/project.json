@@ -20,10 +20,7 @@
           "apps/home-dashboard/src/favicon.ico",
           "apps/home-dashboard/src/assets"
         ],
-        "styles": [
-          "apps/home-dashboard/src/styles.scss",
-          "libs/ui-kit/src/lib/scss/_themes.scss"
-        ],
+        "styles": ["apps/home-dashboard/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
