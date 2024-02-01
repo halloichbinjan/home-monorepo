@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { CardComponent } from '@home-monorepo/ui-kit';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'home-monorepo-root',
+  imports: [RouterModule, CardComponent],
+  selector: 'dashboard-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'home-dashboard';
+  @HostBinding('class.dark-theme') darkTheme = true;
+
+  toggleTheme() {
+    this.darkTheme = !this.darkTheme;
+  }
 }

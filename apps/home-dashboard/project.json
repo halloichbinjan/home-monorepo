@@ -2,7 +2,7 @@
   "name": "home-dashboard",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "home-monorepo",
+  "prefix": "dashboard",
   "sourceRoot": "apps/home-dashboard/src",
   "tags": [],
   "targets": {
@@ -20,7 +20,10 @@
           "apps/home-dashboard/src/favicon.ico",
           "apps/home-dashboard/src/assets"
         ],
-        "styles": ["apps/home-dashboard/src/styles.scss"],
+        "styles": [
+          "apps/home-dashboard/src/styles.scss",
+          "libs/ui-kit/src/lib/scss/_themes.scss"
+        ],
         "scripts": []
       },
       "configurations": {
