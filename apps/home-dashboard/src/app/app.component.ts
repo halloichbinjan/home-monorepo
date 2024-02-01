@@ -1,16 +1,15 @@
 import { Component, HostBinding } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CardComponent } from '@home-monorepo/ui-kit';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, CardComponent],
+  imports: [RouterModule],
   selector: 'dashboard-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  isDarkMode = false;
+  isDarkMode = true;
 
   @HostBinding('class.dark-theme') get applyDarkModeClass() {
     return this.isDarkMode;

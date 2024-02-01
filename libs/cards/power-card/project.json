@@ -1,0 +1,36 @@
+{
+  "name": "power-card",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/cards/power-card/src",
+  "prefix": "home-monorepo",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/cards/power-card/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/cards/power-card/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/cards/power-card/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/cards/power-card/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
