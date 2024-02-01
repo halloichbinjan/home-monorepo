@@ -13,6 +13,7 @@ export class DevicePowerCardComponent implements OnInit {
   @Input({ required: true }) device: any;
 
   cardColor = 'var(--secondary-color)';
+  toggleColor = 'var(--secondary-color)';
   isDeviceOn!: boolean;
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class DevicePowerCardComponent implements OnInit {
 
   handleToggleChange(isToggled: boolean) {
     this.isDeviceOn = isToggled;
-    this.device.toggle(isToggled);
+    //this.device.toggle(isToggled);
     this.changeColor();
   }
 
@@ -34,25 +35,31 @@ export class DevicePowerCardComponent implements OnInit {
         case 'blue':
           this.cardColor =
             'linear-gradient(90deg,rgba(0, 164, 250, 1) 0%, rgba(0, 107, 242, 1) 100%)';
+          this.toggleColor = 'rgba(0, 107, 242, 1)';
           break;
         case 'green':
           this.cardColor =
             'linear-gradient(90deg, rgba(51,202,186,1) 0%, rgba(43,170,93,1) 100%)';
+          this.toggleColor = 'rgba(43,170,93,1)';
           break;
         case 'red':
           this.cardColor =
             'linear-gradient(90deg, rgba(250,125,116,1) 0%, rgba(249,78,57,1) 100%)';
+          this.toggleColor = 'rgba(249,78,57,1)';
           break;
         case 'purple':
           this.cardColor =
             'linear-gradient(90deg, rgba(114,48,249,1) 0%, rgba(111,43,170,1) 100%)';
+          this.toggleColor = 'rgba(111,43,170,1)';
           break;
         default:
           this.cardColor = 'var(--secondary-color)';
+          this.toggleColor = 'var(--secondary-color)';
           break;
       }
     } else {
       this.cardColor = 'var(--secondary-color)';
+      this.toggleColor = 'var(--secondary-color)';
     }
   }
 }

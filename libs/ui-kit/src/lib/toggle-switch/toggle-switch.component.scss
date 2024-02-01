@@ -11,25 +11,26 @@ input[type='checkbox'] {
 }
 
 input:checked[type='checkbox'] {
-  background: #7da6ff;
+  background: #fff;
 }
 
 input[type='checkbox']::after {
   position: absolute;
   content: '';
-  width: 20px;
-  height: 20px;
-  top: 0;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0;
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
   transition: 0.4s;
 }
 
 input:checked[type='checkbox']::after {
   left: 50%;
+  background: var(--toggle-color, #727272);
 }
 
 :host {
