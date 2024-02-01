@@ -18,12 +18,14 @@ export class DashboardComponent {
       type: 'light',
       color: 'purple',
       toggle: (isToggled: boolean) => this.toggleHueDevice(1, isToggled),
+      getState: () => this.getHueDeviceState(1),
     },
     {
       name: 'Schreibtisch',
       type: 'light',
       color: 'red',
       toggle: (isToggled: boolean) => this.toggleHueDevice(2, isToggled),
+      getState: () => this.getHueDeviceState(2),
     },
   ];
 
@@ -32,6 +34,15 @@ export class DashboardComponent {
   toggleHueDevice(deviceId: number, isToggled: boolean) {
     const path = `http://192.168.178.78/api/3eeCEqkjNWQ4ZxXT3DCuk5mUplDFhXPRycKNwan5/lights/${deviceId}/state`;
     const body = { on: isToggled };
-    this.apiService.put(path, body).subscribe();
+    this.apiService.put(path, body).subscribe({
+      next: () => console.log('success'),
+      error: (err) => console.log(err),
+    });
+  }
+
+  getHueDeviceState(deviceId: number) {
+    const path = `http://192.168.178.78/api/3eeCEqkjNWQ4ZxXT3DCuk5mUplDFhXPRycKNwan5/lights/${deviceId}`;
+
+    return this.apiService.get<any>(path);
   }
 }

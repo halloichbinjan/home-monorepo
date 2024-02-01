@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'dashboard-toggle-switch',
@@ -11,10 +11,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ToggleSwitchComponent {
   @Output() toggleChanged = new EventEmitter<boolean>();
 
-  isToggled = false;
+  @Input() isDeviceOn = false;
 
   onToggleChange() {
-    this.isToggled = !this.isToggled;
-    this.toggleChanged.emit(this.isToggled);
+    this.isDeviceOn = !this.isDeviceOn;
+    this.toggleChanged.emit(this.isDeviceOn);
   }
 }

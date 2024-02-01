@@ -1,10 +1,13 @@
-<dashboard-card class="device-card">
+<!-- device-power-card.component.html -->
+
+<dashboard-card class="device-card" [style.background]="cardColor">
   <div class="switch-row">
-    <p>ON</p>
+    <p>{{ isDeviceOn ? 'On' : 'Off' }}</p>
     <dashboard-toggle-switch
+      [isDeviceOn]="isDeviceOn"
       (toggleChanged)="handleToggleChange($event)"
     ></dashboard-toggle-switch>
   </div>
 
-  <p>Refridgerator</p>
+  <p>{{ device.name }}</p>
 </dashboard-card>
