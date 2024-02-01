@@ -25,7 +25,7 @@ export class DevicePowerCardComponent implements OnInit {
 
   handleToggleChange(isToggled: boolean) {
     this.isDeviceOn = isToggled;
-    //this.device.toggle(isToggled);
+    this.device.toggle(isToggled);
     this.changeColor();
   }
 
