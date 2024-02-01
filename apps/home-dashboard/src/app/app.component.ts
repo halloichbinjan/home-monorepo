@@ -10,9 +10,17 @@ import { CardComponent } from '@home-monorepo/ui-kit';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  @HostBinding('class.dark-theme') darkTheme = true;
+  isDarkMode = false;
+
+  @HostBinding('class.dark-theme') get applyDarkModeClass() {
+    return this.isDarkMode;
+  }
+
+  @HostBinding('class.light-theme') get applyLightModeClass() {
+    return !this.isDarkMode;
+  }
 
   toggleTheme() {
-    this.darkTheme = !this.darkTheme;
+    this.isDarkMode = !this.isDarkMode;
   }
 }
