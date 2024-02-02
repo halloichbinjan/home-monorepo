@@ -1,5 +1,7 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--secondary-color);
   border-radius: 25px;
   box-shadow: -5px -5px 10px 3px #222237;
@@ -7,4 +9,5 @@
   border: 1px solid #2a2a50;
   margin-bottom: 30px;
   padding: 20px;
+  min-width: 100px;
 }

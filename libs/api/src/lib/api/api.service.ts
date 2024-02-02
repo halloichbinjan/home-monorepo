@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  put<T>(path: string, body: any) {
-    return this.http.put<T>(path, body);
+  put<T>(path: string, body: any, headers?: any) {
+    return this.http.put<T>(path, body, { headers });
   }
 
-  get<T>(path: string) {
-    return this.http.get<T>(path);
+  get<T>(path: string, headers?: any) {
+    return this.http.get<T>(path, { headers });
   }
 
   post<T>(path: string, body: any) {

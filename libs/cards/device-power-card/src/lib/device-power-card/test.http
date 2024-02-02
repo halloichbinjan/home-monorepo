@@ -1,0 +1,24 @@
+PUT https://developer-api.govee.com/v1/devices/control HTTP/1.1
+content-type: application/json
+Govee-API-Key: 88ef979a-4e45-45ab-8a82-01ff08dca947
+
+{
+    "device": "40:DA:D4:AD:FC:00:CC:BB",
+    "model": "H61A0",
+    "cmd": {
+        "name": "turn",
+        "value": "off"
+    }
+}
+
+### 
+
+GET https://developer-api.govee.com/v1/devices/ HTTP/1.1
+content-type: application/json
+Govee-API-Key: 88ef979a-4e45-45ab-8a82-01ff08dca947
+
+### 
+
+GET https://developer-api.govee.com/v1/devices/state?device=40:DA:D4:AD:FC:00:CC:BB&model=H61A0 HTTP/1.1
+content-type: application/json
+Govee-API-Key: 88ef979a-4e45-45ab-8a82-01ff08dca947

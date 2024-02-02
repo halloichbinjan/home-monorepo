@@ -14,15 +14,19 @@
   <div class="scroll-wrapper">
     <div class="room-section">
       <div class="devices">
-        <dashboard-device-power-card
+        <ng-container
           *ngFor="
             let device of devices
               | filterBy
                 : (selectedRoom === 'Alle' ? null : selectedRoom)
                 : 'room'
           "
-          [device]="device"
-        ></dashboard-device-power-card>
+        >
+          <dashboard-device-power-card
+            *ngIf="!device.disabled"
+            [device]="device"
+          ></dashboard-device-power-card
+        ></ng-container>
       </div>
     </div>
   </div>
@@ -40,7 +44,7 @@
   <div class="scroll-wrapper">
     <div class="room-section">
       <div class="devices">
-        <dashboard-device-power-card
+        <ng-container
           *ngFor="
             let device of devices
               | filterBy
@@ -49,8 +53,12 @@
                     : selectedState.toLowerCase() === 'on' ?? false)
                 : 'on'
           "
-          [device]="device"
-        ></dashboard-device-power-card>
+        >
+          <dashboard-device-power-card
+            *ngIf="!device.disabled"
+            [device]="device"
+          ></dashboard-device-power-card
+        ></ng-container>
       </div>
     </div>
   </div>

@@ -1,6 +1,11 @@
 .switch-row {
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+dashboard-card {
+  height: 110px;
+  margin-bottom: 0px;
 }

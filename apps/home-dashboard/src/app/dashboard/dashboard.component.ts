@@ -22,7 +22,7 @@ import { WelcomeCardComponent } from '@home-monorepo/welcome-card';
 })
 export class DashboardComponent {
   rooms = ['Alle', 'Wohnzimmer', 'Schlafzimmer'];
-  selectedRoom = 'Alle';
+  selectedRoom = 'Wohnzimmer';
 
   states = ['Alle', 'On', 'Off'];
   selectedState = 'Alle';
