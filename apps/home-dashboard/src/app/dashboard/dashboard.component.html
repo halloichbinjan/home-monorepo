@@ -46,8 +46,8 @@
               | filterBy
                 : (selectedState === 'Alle'
                     ? null
-                    : selectedState.toLowerCase())
-                : 'state'
+                    : selectedState.toLowerCase() === 'on' ?? false)
+                : 'on'
           "
           [device]="device"
         ></dashboard-device-power-card>

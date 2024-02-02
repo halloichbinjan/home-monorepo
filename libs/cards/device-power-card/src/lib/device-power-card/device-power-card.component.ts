@@ -15,25 +15,30 @@ export class DevicePowerCardComponent implements OnInit {
 
   cardColor = 'var(--secondary-color)';
   toggleColor = 'var(--secondary-color)';
-  isDeviceOn!: boolean;
 
-  constructor(private deviceService: DeviceService) {}
+  constructor(private deviceService: DeviceService) {
+    this.deviceService.checkStates$.subscribe(() => {
+      this.changeColor();
+    });
+  }
 
   ngOnInit(): void {
     this.device.getState().subscribe((state: any) => {
-      this.isDeviceOn = state.state.on;
+      this.device.on = state.state.on;
       this.changeColor();
     });
   }
 
   handleToggleChange(isToggled: boolean) {
-    this.isDeviceOn = isToggled;
+    this.device.on = isToggled;
     this.device.toggle(isToggled);
+    console.log(this.device);
+
     this.changeColor();
   }
 
   changeColor() {
-    if (this.isDeviceOn) {
+    if (this.device.on) {
       switch (this.device.color) {
         case 'blue':
           this.cardColor =

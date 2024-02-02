@@ -1,9 +1,13 @@
+import { Subject } from 'rxjs';
+
 import { Injectable } from '@angular/core';
 import { ApiService } from '@home-monorepo/api';
 
 @Injectable({ providedIn: 'root' })
 export class DeviceService {
   constructor(private apiService: ApiService) {}
+
+  checkStates$ = new Subject<void>();
 
   devices = [
     {
@@ -12,7 +16,7 @@ export class DeviceService {
       type: 'light',
       color: 'purple',
       room: 'Schlafzimmer',
-      state: 'off',
+      on: false,
       toggle: (isToggled: boolean) => this.toggleHueDevice(1, isToggled),
       getState: () => this.getHueDeviceState(1),
     },
@@ -22,7 +26,7 @@ export class DeviceService {
       type: 'light',
       color: 'red',
       room: 'Wohnzimmer',
-      state: 'off',
+      on: false,
       toggle: (isToggled: boolean) => this.toggleHueDevice(2, isToggled),
       getState: () => this.getHueDeviceState(2),
     },
@@ -33,13 +37,8 @@ export class DeviceService {
     const body = { on: isToggled };
     this.apiService.put(path, body).subscribe({
       next: () => {
-        this.devices = this.devices.map((device) => {
-          if (device.id === deviceId) {
-            return { ...device, state: isToggled ? 'on' : 'off' };
-          }
-
-          return device;
-        });
+        console.log('success');
+        this.checkStates$.next();
       },
       error: (err) => console.log(err),
     });
@@ -50,7 +49,7 @@ export class DeviceService {
     return this.apiService.get<any>(path);
   }
 
-  // checkStates() {
-  //   this.checkStates$.next();
-  // }
+  checkStates() {
+    this.checkStates$.next();
+  }
 }

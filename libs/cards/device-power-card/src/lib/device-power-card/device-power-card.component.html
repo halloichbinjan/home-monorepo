@@ -1,8 +1,8 @@
 <dashboard-card class="device-card" [style.background]="cardColor">
   <div class="switch-row">
-    <p>{{ isDeviceOn ? 'On' : 'Off' }}</p>
+    <p>{{ device.on ? 'On' : 'Off' }}</p>
     <dashboard-toggle-switch
-      [isDeviceOn]="isDeviceOn"
+      [isDeviceOn]="device.on"
       (toggleChanged)="handleToggleChange($event)"
       [style.--toggle-color]="toggleColor"
     ></dashboard-toggle-switch>
