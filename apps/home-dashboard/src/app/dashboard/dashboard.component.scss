@@ -25,6 +25,9 @@
       .info-row {
         height: 35px;
         margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         p {
           font-size: 22px;
           color: var(--secondary-text-color);

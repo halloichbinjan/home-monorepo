@@ -1,0 +1,8 @@
+<div class="select-wrapper">
+  <select [(ngModel)]="selectedOption" (ngModelChange)="onOptionChange($event)">
+    <option *ngFor="let option of options" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+  <fa-icon [icon]="faChevronDown"></fa-icon>
+</div>

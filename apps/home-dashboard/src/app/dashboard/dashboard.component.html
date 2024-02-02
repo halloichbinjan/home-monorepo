@@ -3,10 +3,22 @@
   <div class="scroll-wrapper">
     <dashboard-welcome-card></dashboard-welcome-card>
     <div class="room-section">
-      <div class="info-row"><p>Jans Home</p></div>
+      <div class="info-row">
+        <p>Jans Home</p>
+        <dashboard-dropdown
+          [options]="rooms"
+          [selectedOption]="selectedRoom"
+          (selectedOptionChange)="changeRoom($event)"
+        ></dashboard-dropdown>
+      </div>
       <div class="devices">
         <dashboard-device-power-card
-          *ngFor="let device of devices"
+          *ngFor="
+            let device of devices
+              | filterBy
+                : (selectedRoom === 'Alle' ? null : selectedRoom)
+                : 'room'
+          "
           [device]="device"
         ></dashboard-device-power-card>
       </div>

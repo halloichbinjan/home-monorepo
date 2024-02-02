@@ -20,6 +20,7 @@
         "libs/cards/device-power-card/src/index.ts"
       ],
       "@home-monorepo/member-card": ["libs/cards/member-card/src/index.ts"],
+      "@home-monorepo/shared": ["libs/shared/src/index.ts"],
       "@home-monorepo/ui-kit": ["libs/ui-kit/src/index.ts"],
       "@home-monorepo/welcome-card": ["libs/cards/welcome-card/src/index.ts"]
     }
