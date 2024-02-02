@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { DeviceService } from '@home-monorepo/shared';
 import { CardComponent, ToggleSwitchComponent } from '@home-monorepo/ui-kit';
 
 @Component({
@@ -16,6 +17,8 @@ export class DevicePowerCardComponent implements OnInit {
   toggleColor = 'var(--secondary-color)';
   isDeviceOn!: boolean;
 
+  constructor(private deviceService: DeviceService) {}
+
   ngOnInit(): void {
     this.device.getState().subscribe((state: any) => {
       this.isDeviceOn = state.state.on;
@@ -25,7 +28,7 @@ export class DevicePowerCardComponent implements OnInit {
 
   handleToggleChange(isToggled: boolean) {
     this.isDeviceOn = isToggled;
-    //this.device.toggle(isToggled);
+    this.device.toggle(isToggled);
     this.changeColor();
   }
 
