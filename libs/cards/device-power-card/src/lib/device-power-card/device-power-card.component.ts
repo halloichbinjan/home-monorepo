@@ -23,13 +23,13 @@ export class DevicePowerCardComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.device.on = await this.device.getState();
+    this.device.on = await this.device.getState(this.device.on);
     this.changeColor();
   }
 
   handleToggleChange(isToggled: boolean) {
     this.device.on = isToggled;
-    this.device.toggle(isToggled);
+    this.device.toggle(isToggled, !isToggled);
     this.changeColor();
   }
 
