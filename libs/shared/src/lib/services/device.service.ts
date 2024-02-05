@@ -114,8 +114,7 @@ export class DeviceService {
     const path = `http://192.168.178.78/api/3eeCEqkjNWQ4ZxXT3DCuk5mUplDFhXPRycKNwan5/lights/${deviceId}`;
     try {
       const res = await this.apiService.get<any>(path).toPromise();
-
-      return res.state;
+      return res.state.on;
     } catch (err) {
       return err;
     }
@@ -138,8 +137,6 @@ export class DeviceService {
 
     this.apiService.put(path, body, headers).subscribe({
       next: (res) => {
-        console.log(res);
-
         this.checkStates$.next();
       },
       error: (err) => console.log(err),
@@ -164,7 +161,6 @@ export class DeviceService {
           ? false
           : true;
 
-      console.log('isDeviceOnline', isDeviceOnline);
       if (!isDeviceOnline) {
         const device = this.devices.find(
           (device) => device.deviceId === deviceId
