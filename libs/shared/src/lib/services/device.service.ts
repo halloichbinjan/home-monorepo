@@ -3,13 +3,30 @@ import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ApiService } from '@home-monorepo/api';
 
+export interface Device {
+  id: number;
+  name: string;
+  type: string;
+  color: string;
+  room: string;
+  on: boolean;
+  disabled: boolean;
+  toggle: (isToggled: boolean, currentState: boolean) => void;
+  getState: (currentState: boolean) => Promise<boolean>;
+}
+
+export interface GoveeDevice extends Device {
+  deviceId: string;
+  model: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class DeviceService {
   constructor(private apiService: ApiService) {}
 
   checkStates$ = new Subject<void>();
 
-  devices = [
+  devices: (Device | GoveeDevice)[] = [
     {
       id: 1,
       name: 'Bett',
@@ -151,7 +168,6 @@ export class DeviceService {
     const body = { on: isToggled };
     this.apiService.put(path, body).subscribe({
       next: () => {
-        console.log('success');
         this.checkStates$.next();
       },
       error: (err) => {
@@ -228,9 +244,12 @@ export class DeviceService {
           : true;
 
       if (!isDeviceOnline) {
-        const device = this.devices.find(
-          (device) => device.deviceId === deviceId
-        );
+        const device = this.devices.find((device) => {
+          if ('deviceId' in device) {
+            return device.deviceId === deviceId;
+          }
+          return false;
+        });
 
         if (device) device.disabled = true;
         return false;
